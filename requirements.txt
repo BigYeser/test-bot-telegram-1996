@@ -2,3 +2,4 @@ python-telegram-bot
 pytelegrambotapi
 gtts
 praw
+python-3.9.9
