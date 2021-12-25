@@ -14,6 +14,7 @@ def help_command(update, context):
 
 def handle_message(update, context):
    print(update)
+   print(context)
    if update.message.chat['type'] == 'private':
        chat_id = update.message.from_user['id']
        user_name = update.message.from_user['first_name']
@@ -31,6 +32,7 @@ def main():
     dp.add_handler(CommandHandler("start", start_command))
     dp.add_handler(CommandHandler("help", help_command))
     dp.add_handler(MessageHandler(Filters.text,handle_message))
+    dp.add_handler
     updater.start_polling()
     updater.idle()
 
