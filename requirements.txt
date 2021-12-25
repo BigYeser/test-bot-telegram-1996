@@ -1,2 +1,7 @@
 python-telegram-bot
-
+gunicorn
+gevent
+Flask
+SQLAlchemy
+passlib
+Werkzeug
