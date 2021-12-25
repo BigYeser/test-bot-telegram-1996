@@ -20,9 +20,9 @@ def handle_message(update, context):
        user_name = update.message.from_user['first_name']
        response = r.sample_response(update.message.text)
        if chat_id == 1134269289:
-           response += '\nhello boss ' + user_name
+           response += '\n' + user_name + ' is king'
        else:
-           response += '\nkol khara ' + user_name
+           response += '\n' + user_name + ' my love'
    else:
        response = ' nothing'
 
