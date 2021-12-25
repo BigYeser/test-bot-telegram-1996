@@ -1,5 +1,3 @@
-
-
 import constants as keys
 import responses as r
 from telegram.ext import *
@@ -28,9 +26,9 @@ def handle_message(update, context):
 
 def handle_file(update, context):
     print(update)
-    print(context)
-
-
+    context.bot.get_file(update.message.document).download()
+    print('succes')
+    
 def main():
     updater = Updater(keys.API_KEY, use_context=True)
     dp = updater.dispatcher
