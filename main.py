@@ -26,12 +26,18 @@ def handle_message(update, context):
 
    update.message.reply_text(response)
 
+def handle_file(update, context):
+    print(update)
+    print(context)
+
+
 def main():
     updater = Updater(keys.API_KEY, use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start_command))
     dp.add_handler(CommandHandler("help", help_command))
     dp.add_handler(MessageHandler(Filters.text,handle_message))
+    dp.add_handler(MessageHandler(Filters.document,handle_file))
     updater.start_polling()
     updater.idle()
 
