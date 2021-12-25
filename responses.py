@@ -1,5 +1,3 @@
-
-
-def sample_response(input_text):
-    message = str(input_text).lower()
-    return message + ' from bot'
+def sample_response(input):
+    print(input)
+    return 'hello'
