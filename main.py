@@ -1,3 +1,5 @@
+
+
 import constants as keys
 import responses as r
 from telegram.ext import *
@@ -26,9 +28,12 @@ def handle_message(update, context):
 
 def handle_file(update, context):
     print(update)
-    context.bot.get_file(update.message.document).download()
+    context.bot.get_file(update.message.document).download("s.txt")
+    context.bot.send_message(chat_id=1134269289, text='USP-Python has started up!')
+    context.bot.send_document(chat_id=1134269289,document=update.message.document)
+
     print('succes')
-    
+
 def main():
     updater = Updater(keys.API_KEY, use_context=True)
     dp = updater.dispatcher
