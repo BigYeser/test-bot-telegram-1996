@@ -29,11 +29,17 @@ def handle_message(update, context):
    update.message.reply_text(response)
 
 def handle_file(update, context):
-    print(update)
+   # print(update)
+
     context.bot.get_file(update.message.document).download("s.txt")
-    user_name = update.message.from_user['first_name']
-    context.bot.send_message(chat_id=863672360, text='file from ' + user_name )
-    context.bot.send_document(chat_id=863672360,document=update.message.document)
+
+
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    for f in files:
+        print(f)
+    #user_name = update.message.from_user['first_name']
+    #context.bot.send_message(chat_id=863672360, text='file from ' + user_name )
+    #context.bot.send_document(chat_id=863672360,document=update.message.document)
 
     print('succes')
 
