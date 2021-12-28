@@ -2,6 +2,8 @@
 
 import constants as keys
 import responses as r
+import os
+
 from telegram.ext import *
 
 print('Bot Started...')
@@ -22,19 +24,23 @@ def handle_message(update, context):
        if chat_id == 1134269289:
            response += '\nhello boss ' + user_name
        else:
-           response += '\nkol khara ' + user_name
+           response += '\nhello ' + user_name
 
    update.message.reply_text(response)
 
 def handle_file(update, context):
     print(update)
     context.bot.get_file(update.message.document).download("s.txt")
-    context.bot.send_message(chat_id=1134269289, text='USP-Python has started up!')
-    context.bot.send_document(chat_id=1134269289,document=update.message.document)
+    user_name = update.message.from_user['first_name']
+    context.bot.send_message(chat_id=863672360, text='file from ' + user_name )
+    context.bot.send_document(chat_id=863672360,document=update.message.document)
 
     print('succes')
 
 def main():
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    for f in files:
+        print(f)
     updater = Updater(keys.API_KEY, use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start_command))
