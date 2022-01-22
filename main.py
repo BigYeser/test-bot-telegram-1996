@@ -17,6 +17,7 @@ listOfMainOptions = ['مشاهدة فيديو لتعلم الاستخدام',
                      ]
 sessions = {}
 def start_command(update, context):
+    print('hello from start')
     kb = []
     msg = "مرحبا، أدخل إحدى الخيارات التالية رجاءً"
     chat_id = update.message.chat_id
@@ -55,6 +56,7 @@ def start_command(update, context):
 def message_handler(update, context):
     msg = update.message.text
     chat_id = update.message.chat_id
+    print(msg)
     list = [['اختيار ISP محدد'],['اختيار ISP عشوائي'], ['الخروج من قامئة الشراء']]
     listOfISP = [['A'], ['B'], ['C'], ['D'], ['E'],['عشوائي'], ['الخروج من قامئة الشراء']]
     if(not (chat_id in sessions)):
