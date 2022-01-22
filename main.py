@@ -28,6 +28,8 @@ def start_command(update, context):
         sessions[chat_id]['loggingInUsername'] = False
         sessions[chat_id]['username'] = ''
         sessions[chat_id]['password'] = ''
+        sessions[chat_id]['buying'] = False
+        sessions[chat_id]['selectingIsp'] = False
 
     if (sessions[chat_id]['isLogin'] == False):
         kb = [[telegram.KeyboardButton('مشاهدة فيديو لتعلم الاستخدام')],
